@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Page</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html" class="logo">
+            <img src="../images/logo.png" alt="ThermoLogic"></a>
+        <a href="index.html" >ThermoLogic</a>
+        <a href="demo.html" class="split">Demo</a>
+        <a href="about.html" class="split">About</a>
+        <a href="index.html" class="split">Home</a>
+      </div>
+    <section class="demo-page">
+        <div class="power-plant-container">
+            <model-viewer 
+                src="3d models/model.glb" 
+                alt="Power Plant Model" 
+                auto-rotate 
+                camera-controls
+                shadow-intensity="1"
+                shadow-softness="0.8"
+                environment-image="neutral"
+                exposure="1.2"
+                camera-orbit="290deg 80deg 100m"
+                field-of-view="100%">
+            </model-viewer>
+            <button class="reset-button">Reset View</button>
+        </div>
+        <div class="graphs-container">
+            <p>Graph-related content goes here.</p>
+        </div>
+    </section>
+
+    <script src="js/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #3879ea, #336a72);
+}
+
+
+
+.about-page {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.power-plant-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-container {
+    flex: 1;
+    padding: 20px;
+}

@@ -1,0 +1,72 @@
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background: transparent;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+/* Style the logo */
+.topnav .logo img {
+    height: 45px; /* Adjust the height of the logo */
+    vertical-align: top; /* Align the logo vertically */
+    margin-top: -12px;
+}
+
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 3px;
+    text-decoration: none;
+    font-size: 20px;
+    text-shadow: #010101;
+  }
+  
+  /* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+    float: right;
+    color: rgb(1, 1, 1);
+    padding: 14px 30px;
+
+  }
+  .topnav a.split {
+    font-size: 14px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .topnav a.split::after,
+  .topnav a.split::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ffffff, #0283ec);
+    bottom: 10px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
+  }
+  
+  .topnav a.split::before {
+    top: 10px;
+    transform-origin: left;
+  }
+  
+  .topnav a.split:hover::after,
+  .topnav a.split:hover::before {
+    transform: scaleX(1);
+  }
+  
+
+  
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }

@@ -1,0 +1,54 @@
+body, html {
+    background-color: #f4f2eb;
+    height: 100%;
+    overflow: visible;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300; /* Light version */
+
+    background: linear-gradient(135deg, #3879ea, #336a72);
+}
+
+
+
+.demo-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 0px;
+    background: transparent; /* Gradient background */
+    color: #ffffff;
+}
+
+.power-plant-container {
+    display: flex;
+    flex-direction: column; /* Stack the model and button vertically */
+    align-items: center;    /* Center-align both horizontally */
+    height: 70%;            /* Adjust height */
+    width: 100%;
+    position: relative;     /* Ensure relative positioning for internal elements */
+}
+
+.power-plant-container model-viewer {
+    width: 100vh;            /* Make the model full width */
+    height: 100vh;           /* Occupy the full container height */
+    border: none;           /* Remove border for testing */
+    display: block;
+}
+
+.reset-button {
+    margin-top: 10px;       /* Add space between the model and the button */
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.reset-button:hover {
+    background-color: #555;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
