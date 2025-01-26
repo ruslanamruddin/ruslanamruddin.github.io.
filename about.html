@@ -1,37 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <title>Gallery Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Montserrat, sans-serif;
+      color: white;
+      background: linear-gradient(180deg, #000000, #016d22);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background-color: rgba(0, 0, 0, 0.5);
+      margin-top: auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px; /* Adjust the size of the logo */
+      height: auto;
+      margin-right: 10px; /* Space between the logo and text */
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 50px;
+      margin-top: 100px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img.zoomed {
+      transform: scale(2);
+      z-index: 1000;
+      position: relative;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".gallery img");
+
+      images.forEach(image => {
+        image.addEventListener("click", () => {
+          if (image.classList.contains("zoomed")) {
+            image.classList.remove("zoomed");
+          } else {
+            images.forEach(img => img.classList.remove("zoomed"));
+            image.classList.add("zoomed");
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body>
-    <div class="topnav">
-        <a href="index.html" class="logo">
-            <img src="../images/logo.png" alt="ThermoLogic"></a>
-        <a href="index.html" >ThermoLogic</a>
-        <a href="demo.html" class="split">Demo</a>
-        <a href="about.html" class="split">About</a>
-        <a href="index.html" class="split">Home</a>
-      </div>
-    <section class="about-page">
-        <div class="power-plant-container">
-            <model-viewer 
-                src="3d models/model.glb" 
-                alt="Power Plant Model" 
-                auto-rotate 
-                camera-controls>
-            </model-viewer>
-        </div>
-        <div class="info-container">
-            <p>Information about the power plant model.</p>
-            <p>Details on AI features and functionality.</p>
-        </div>
-    </section>
+  <header>
+    <div class="logo">
+        <img src="logo.png" alt="ThermoLogic Logo" class="logo-image">ThermoLogic</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="creators.html">About</a></li>
+        <li><a href="about.html">Demo</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <script src="js/about.js"></script>
+  <main>
+    <h1 style="text-align: center; margin-top: 100px;">Hackathon Gallery</h1>
+    <p style="text-align: center; margin: 20px;">Explore the moments captured during our hackathon journey.</p>
+    <p style="text-align: center; margin: 20px;">(Click to enlarge images)</p>
+    <div class="gallery">
+    <div class="gallery">
+      <img src="gui.png" alt="Hackathon Image 1">
+      <img src="gui2.png" alt="Hackathon Image 2">
+      <img src="bomb.jpg" alt="Hackathon Image 3">
+      <img src="pipes.jpg" alt="Hackathon Image 4">
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2025 ThermoLogic. All rights reserved.
+  </footer>
 </body>
 </html>

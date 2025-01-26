@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Creators</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #000000, #016d22);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+
+    section {
+      margin-top: 80px;
+    }
+
+    .creator-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .creator-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      width: 300px;
+      margin: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      color: white;
+    }
+
+    .creator-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .creator-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .creator-card p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">ThermoLogic</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="creators.html">About</a></li>
+        <li><a href="about.html">Demo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h1>About the Creators</h1>
+    <p>Meet the brilliant minds behind ThermoLogic.</p>
+    <div class="creator-container">
+      <div class="creator-card">
+        <img src="Zain.jpeg" alt="Creator 1">
+        <h3>Zain Parihar</h3>
+        <p>John is a software engineer specializing in AI-driven solutions with a passion for sustainable energy systems.</p>
+      </div>
+      <div class="creator-card">
+        <img src="Naween.jpeg" alt="Creator 2">
+        <h3>Naween Sarwari</h3>
+        <p>Jane leads product design and ensures ThermoLogic's innovations are user-friendly and impactful.</p>
+      </div>
+      <div class="creator-card">
+        <img src="Marwan.jpeg" alt="Creator 3">
+        <h3>Marwan Al-Joundi</h3>
+        <p>Emily is an environmental scientist who drives the company's mission for a greener future.</p>
+      </div>
+      <div class="creator-card">
+        <img src="Ruslan.jpeg" alt="Creator 4">
+        <h3>Ruslan Amruddin</h3>
+        <p>Michael is a financial strategist ensuring ThermoLogic remains a sustainable business model.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 ThermoLogic. All rights reserved.
+  </footer>
+</body>
+</html>

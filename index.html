@@ -1,40 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Page</title>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/start.css">
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the CSS with the new navigation styles -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <title>ThermoLogic Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px; /* Adjust the size of the logo */
+  height: auto;
+  margin-right: 10px; /* Space between the logo and text */
+}
+
+    .glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 25px #00e641, 0 0 30px #09712b, 0 0 35px #074a12, 0 0 40px #79e6aa, 0 0 50px #1b933f;
+  }
+  to {
+    text-shadow: 0 0 15px #fff, 0 0 20px #fff, 0 0 30px #00e641, 0 0 40px #09712b, 0 0 45px #074a12, 0 0 50px #79e6aa, 0 0 60px #1b933f;
+  }
+}
+
+@keyframes glow {
+    from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 25px #00e641, 0 0 30px #09712b, 0 0 35px #074a12, 0 0 40px #79e6aa, 0 0 50px #1b933f;
+  }
+  to {
+    text-shadow: 0 0 15px #fff, 0 0 20px #fff, 0 0 30px #00e641, 0 0 40px #09712b, 0 0 45px #074a12, 0 0 50px #79e6aa, 0 0 60px #1b933f;
+  }
+}
+    body {
+      font-family: Montserrat, sans-serif;
+      color: white;
+      background: linear-gradient(180deg, #000000, #016d22
+      );
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    
+    h2 {
+        font-size: 50px; /* Adjust this value as needed */
+
+    }
+    .main-section {
+      text-align: center;
+      padding: 100px 20px;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main-section h1 {
+      font-size: 130px;
+      font-weight: bold;
+      white-space: nowrap;
+      display: inline-block;
+      animation: slide 15s linear infinite;
+      text-shadow: 0 0 30px #4cd137;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .main-section .arrow {
+      font-size: 150px;
+      margin-top: 40px;
+      opacity: 0;
+      cursor: pointer;
+      animation: fadeIn 2s ease-in forwards, bounce 2s infinite;
+      animation-delay: 5s;
+      color: #00da43;
+      text-shadow: 0 0 20px rgba(227, 255, 237, 0.8);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .info-section {
+      background: linear-gradient(180deg, #013510, #000000 );
+      color: white;
+      padding: 20px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 1);
+      z-index: 1000;
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
+
+    header.visible {
+      opacity: 1;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+
+    .cta-button {
+      padding: 10px 20px;
+      background-color: #dd75a4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .carousel-container {
+      display: flex;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+      perspective: 1200px;
+      width: 80%;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+      justify-content: center;
+    }
+
+    .carousel-item {
+      width: 400px;
+      height: 350px;
+      margin: 0 20px;
+      background: #b0f8b4;
+      border-radius: 10px;
+      padding: 20px;
+      color: black;
+      line-height: 2.5;
+      text-align: center;
+      font-size: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8) rotateY(0deg);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      opacity: 0.4;
+    }
+
+    .carousel-item.active {
+      transform: scale(1) rotateY(0deg);
+      opacity: 0.5;
+      background: #b0f8b4, 0.4;
+        box-shadow: 0 8px 32px 0 #e0f6e2;
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+    .carousel-item.prev {
+      transform: scale(0.8) rotateY(-25deg);
+    }
+
+    .carousel-item.next {
+      transform: scale(0.8) rotateY(25deg);
+    }
+
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 70px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .carousel-control.prev {
+      left: 10px;
+    }
+
+    .carousel-control.next {
+      right: 10px;
+    }
+
+    .info-box {
+      margin: 50px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 80%;
+      background: #01340b;
+      border-radius: 10px;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      line-height: 2.5;
+    }
+
+    .info-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .info-box img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .info-box img {
+  width: 60vh; /* Set the desired width */
+  height: 40vh; /* Set the desired height */
+  object-fit: cover; /* Ensures the image maintains aspect ratio */
+  border-radius: 100px;
+  padding-left: 30px;
+}
+
+  </style>
+  <script>
+    function scrollToInfoSection() {
+      const infoSection = document.querySelector('.info-section');
+      const header = document.querySelector('header');
+      if (infoSection) {
+        infoSection.scrollIntoView({ behavior: 'smooth' });
+        header.classList.add('visible');
+      } else {
+        console.error('Info section not found');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const wrapper = document.querySelector('.carousel-wrapper');
+      const items = document.querySelectorAll('.carousel-item');
+      const next = document.querySelector('.carousel-control.next');
+      const prev = document.querySelector('.carousel-control.prev');
+      const infoBox = document.querySelector('.info-box');
+      const infoTitle = document.querySelector('.info-title');
+      const infoDescription = document.querySelector('.info-description');
+      const infoImage = document.querySelector('.info-image');
+
+      if (!wrapper || !next || !prev || items.length === 0) {
+        console.error('Required carousel elements not found.');
+        return;
+      }
+
+      const infoContent = [
+        {
+          title: "Problem and Challenges",
+          description: "Fossil fuels remain the dominant source of global electricity, accounting for over 60% of energy production in 2023. This reliance leads to approximately 34 billion tonnes of CO₂ emissions annually, which significantly contribute to climate change, environmental degradation, and biodiversity loss. The transition to renewable energy is necessary but far from feasible on a global scale due to technological limitations, insufficient infrastructure, and economic dependencies. Abruptly halting fossil fuel use would jeopardize the energy needs of billions, leaving industries and communities at risk. The challenge lies in mitigating the environmental damage of fossil fuel energy generation while maintaining energy reliability and economic stability.",
+          image: "problem.png"
+        },
+        {
+          title: "Our Solution",
+          description: "Our innovative SaaS platform bridges the gap between fossil fuel dependency and a sustainable future. Using advanced real-time modeling, our platform optimizes the operation of fossil fuel power plants by incorporating weather forecasts, energy demand patterns, and fuel cost projections. These insights enable power plants to improve efficiency, reduce emissions, and align their operations with both environmental and economic priorities. Our solution empowers industries to minimize their ecological footprint while maintaining reliable energy production and cutting operational costs, paving the way for a smoother transition to renewable energy systems.",
+          image: "solution.png"
+        },
+        {
+          title: "Environmental Impact",
+          description: "Our platform directly addresses the environmental concerns surrounding fossil fuel energy generation by reducing unnecessary emissions and improving efficiency. By optimizing the use of fossil fuels, we help power plants significantly lower their CO₂ output, lessening their contribution to climate change and its associated effects, such as extreme weather events and habitat loss. Our solution enables industries to adopt more sustainable practices without compromising energy reliability, creating a meaningful step toward reducing the environmental strain while renewable energy infrastructure continues to develop.",
+          image: "environment.jpg"
+        },
+        {
+          title: "Financial Value",
+          description: "Our SaaS platform recognizes the financial realities faced by industries that rely on fossil fuels. By integrating cost-saving operational strategies, we ensure that power plants not only reduce emissions but also achieve measurable economic benefits. Through optimized energy generation and reduced fuel waste, our platform helps plants lower operational costs while maintaining or even improving market competitiveness. This alignment of financial incentives with environmental goals ensures our solution is both scalable and practical, appealing to businesses driven by profitability while making meaningful strides toward sustainability.",
+          image: "money.png"
+        }
+      ];
+
+      let currentIndex = Math.floor(items.length / 2); // Start with the middle item
+
+      function updateCarousel() {
+        items.forEach((item, index) => {
+          item.classList.remove('active', 'prev', 'next');
+          if (index === currentIndex) {
+            item.classList.add('active');
+          } else if (index === (currentIndex - 1 + items.length) % items.length) {
+            item.classList.add('prev');
+          } else if (index === (currentIndex + 1) % items.length) {
+            item.classList.add('next');
+          }
+        });
+        const offset = -currentIndex * (items[0].offsetWidth + 40) + (wrapper.offsetWidth - items[0].offsetWidth) / 2;
+        wrapper.style.transform = `translateX(${offset}px)`;
+
+        // Update info box content and apply animation
+        infoBox.classList.remove('visible');
+        setTimeout(() => {
+          infoTitle.textContent = infoContent[currentIndex].title;
+          infoDescription.textContent = infoContent[currentIndex].description;
+          infoImage.src = infoContent[currentIndex].image;
+          infoBox.classList.add('visible');
+        }, 200);
+      }
+
+      next.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % infoContent.length;
+        updateCarousel();
+      });
+
+      prev.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + infoContent.length) % infoContent.length;
+        updateCarousel();
+      });
+
+      updateCarousel();
+    });
+
+
+  </script>
 </head>
-
-
-
-
 <body>
-    <div class="topnav">
-        <a href="index.html" class="logo">
-            <img src="../images/logo.png" alt="ThermoLogic"></a>
-        <a href="start.html" >ThermoLogic</a>
-        <a href="demo.html" class="split">Demo</a>
-        <a href="about.html" class="split">About</a>
-        <a href="index.html" class="split">Home</a>
-      </div>
-    <section class="start-page">
-        <div class="start-content">
-            <h1>AI-Powered Solutions for Smarter, Greener Power Plants.</h1>
-            <h2>Introducing</h2>
-            <h3>ThermoLogic</h3>
-        </div>
-        <a href="demo.html" class="scroll-down-arrow">Go to Demo ↓</a>
-    </section>
+<section class="main-section" style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <h1 style="font-size: 96px;"> <span style="color: #00da43;">Unleashing</span> the power of <span style="color: #00da43;">AI</span>  to <span style="color: #00da43;">revolutionize</span> energy systems.</h1>
+  <div class="arrow" onclick="scrollToInfoSection()">&#8595;</div>
+</section>
 
-    <script src="js/start.js"></script>
+<section class="info-section">
+  <header>
+    <div class="logo">
+        <img src="logo.png" alt="ThermoLogic Logo" class="logo-image">ThermoLogic</div>
+    <nav style="flex-grow: 1; display: flex; justify-content: center;">
+      <ul style="display: flex;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="creators.html">About</a></li>
+        <li><a href="about.html">Demo</a></li>
+      </ul>
+    </nav>
+    <button class="cta-button" onclick="window.location.href='about.html'">Get Started</button>
+  </header>
+
+  <div class="company-name" style="text-align: center; margin-top: 80px; margin-bottom: 80px;">
+    <h1 class="glow" style="font-size: 96px; font-weight: bold;">ThermoLogic</h1>
+    <h2 style="font-size: 48px; color: #7cffb5;">Coal-E</h2>
+  </div>
+
+  <div class="carousel-container">
+    <button class="carousel-control prev">&#10094;</button>
+    <div class="carousel-wrapper">
+      <div class="carousel-item">
+        <h3>Problem and Challenges</h3>
+        <p>The global energy industry faces significant challenges in transitioning to sustainable practices, with outdated technologies and infrastructure impeding progress.</p>
+      </div>
+      <div class="carousel-item">
+        <h3>Our Solution</h3>
+        <p>ThermoLogic provides cutting-edge innovations that bridge the gap between traditional energy systems and modern sustainable solutions.</p>
+      </div>
+      <div class="carousel-item">
+        <h3>Environmental Impact</h3>
+        <p>Our technologies significantly reduce carbon emissions, enabling businesses to contribute positively to environmental sustainability.</p>
+      </div>
+      <div class="carousel-item">
+        <h3>Financial Value</h3>
+        <p>By improving energy efficiency, ThermoLogic helps companies save costs while achieving their sustainability goals.</p>
+      </div>
+    </div>
+    <button class="carousel-control next">&#10095;</button>
+  </div>
+
+  <div class="info-box">
+    <div style="flex: 1;">
+      <h2 class="info-title">Title</h2>
+      <p class="info-description">Description</p>
+    </div>
+    <div style="flex: 1;">
+      <img class="info-image" src="https://via.placeholder.com/400x300" alt="Info Image">
+    </div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 ThermoLogic. All rights reserved.
+  </footer>
+</section>
 </body>
 </html>
